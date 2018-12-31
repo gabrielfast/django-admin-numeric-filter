@@ -108,6 +108,7 @@ class RangeNumericFilter(admin.FieldListFilter):
 
     def choices(self, changelist):
         return ({
+            'query_string': [],
             'request': self.request,
             'parameter_name': self.parameter_name,
             'form': RangeNumericForm(name=self.parameter_name, data={
@@ -153,6 +154,7 @@ class SliderNumericFilter(RangeNumericFilter):
             decimals = self._get_decimals(self.field.decimal_places)
 
         return ({
+            'query_string': [],
             'decimals': decimals,
             'step': step,
             'parameter_name': self.parameter_name,
